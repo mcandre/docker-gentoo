@@ -1,6 +1,6 @@
 FROM scratch
 MAINTAINER Andrew Pennebaker <andrew.pennebaker@gmail.com>
-ADD tar /tar
+COPY tar /tar
 ADD stage3-amd64-20150604.tar.bz2 /
 RUN echo 'default' > /run/openrc/softlevel && \
     sed -e 's/#rc_sys=""/rc_sys="lxc"/g' -i /etc/rc.conf && \

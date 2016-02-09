@@ -26,7 +26,11 @@ clean-images:
 clean-layers:
 	-docker images | grep -v IMAGE | grep none | awk '{ print $$3 }' | xargs docker rmi -f
 
-clean: clean-containers clean-images clean-layers
+clean-tarballs:
+	-rm tar
+	-rm *.tar.bz2*
+
+clean: clean-containers clean-images clean-layers clean-tarballs
 
 publish:
 	docker push $(IMAGE)
