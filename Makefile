@@ -32,5 +32,10 @@ clean-tarballs:
 
 clean: clean-containers clean-images clean-layers clean-tarballs
 
+dockerlint:
+	$(shell npm bin)/dockerlint
+
+lint: dockerlint
+
 publish:
 	docker push $(IMAGE)
